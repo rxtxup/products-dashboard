@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  br
+  form(action='/login' id='login' method='POST' class='items-center w-56 h-56 flex-col flex')
+    input(type='text' name='user' value='' placeholder='логин' class='bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 focus:outline-none')
+    br
+    input(type='text' name='password' value='' placeholder='пароль' class='bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 focus:outline-none')
+    br
+    input(type='submit' value='Авторизация' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline')

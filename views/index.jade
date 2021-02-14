@@ -1,0 +1,44 @@
+extends layout
+
+block content
+  div.content
+    div
+      | Вы вошли как, 
+      b.ml-auto= user
+      br
+      a(href="/logout", class="no-underline hover:underline text-blue-500 text-lg ml-auto") LogOut
+    div.pagetitle
+      h1.text-3xl Панель администратора
+      div.flex
+        h3.text-xl.mt-4 Список пользователей
+        a(href="/logout", class="no-underline hover:underline text-blue-500 text-lg text-xl mt-4 ml-auto modal-open") Создать нового пользователя
+    table#userslist.table-auto.mt-4
+      thead
+        tr
+          th.border.px-4.py-2 Имя пользователя
+          th.border.px-4.py-2 Кол-во товарных позиций
+          th.border.px-4.py-2 Продаж всего
+          th.border.px-4.py-2 Продаж за 7 дней
+          th.border.px-4.py-2 Подробнее / Редактировать
+      tbody
+        tr
+          td.border.px-4.py-2 test
+          td.border.px-4.py-2 test
+          td.border.px-4.py-2 test
+          td.border.px-4.py-2 test
+          td.border.px-4.py-2 test
+    include mixins/modal
+    +modal('Создание нового пользователя')
+      p
+      form(action='/createuser' id='createuser' method='POST' class='items-center w-36 h-36 flex-col flex')
+        input(type='text' name='name' value='' placeholder='Имя пользователя' class='bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 mb-4 focus:outline-none')
+        br
+        input(type='text' name='login' value='' placeholder='Логин' class='bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 mb-4 focus:outline-none')
+        br
+        input(type='text' name='password' value='' placeholder='Пароль' class='bg-gray-200 focus:bg-white border-transparent focus:border-blue-400 text-gray-900 appearance-none inline-block w-full border rounded py-3 px-4 mb-4 focus:outline-none')
+        // Footer
+        div.flex.justify-end.pt-2
+          input(type='submit' value='Создать' class='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline')
+        //- button.modal-close.px-4.bg-indigo-500.p-3.rounded-lg.text-white(class='hover:bg-indigo-400') Close
+
+    script(src='javascripts/modal.js', type='module')
